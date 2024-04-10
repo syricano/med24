@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
 from clinic_app import views as clinic_views
+
 
 
 urlpatterns = [
@@ -19,5 +21,10 @@ urlpatterns = [
     # Include URL for the 'about us' page from the 'clinic_app' app
     path('about/', clinic_views.AboutUsView.as_view(), name="about"),
 
+    # Include URL for the 'signup' page from the 'clinic_app' app
+    path('signup/', clinic_views.signup_view, name="signup"),
+
+    # Include URL for the 'signup' page from the 'clinic_app' app
+    path('login/', auth_views.LoginView.as_view(template_name="login.html"), name = 'login')
     
 ]

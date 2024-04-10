@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from django.views.generic import ListView, TemplateView  
 from .models import HomePage, AboutUs
+from django.contrib.auth.forms import UserCreationForm
 
 
 # Define app's name
@@ -17,3 +18,14 @@ class AboutUsView(ListView):
 
     def get_queryset(self):
         return AboutUs.objects.all()
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # Redirect to the homepage or a success page
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form':form})
