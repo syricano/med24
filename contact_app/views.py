@@ -5,7 +5,7 @@ from .models import Message
 from django.http import HttpResponse
 
 
-def contact(request):
+def contact_view(request):
     if request.method == "POST":
         contact = Message()
         name = request.POST.get('name')

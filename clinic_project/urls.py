@@ -11,10 +11,10 @@ urlpatterns = [
     path('', include("clinic_app.urls"), name = "clinic"),
 
     # Include URLs from the 'appointments_app' app
-    path('appointment/', include("appointments_app.urls"), name = "appointments_app"),
+    path('appointment/', include("appointments_app.urls"), name = "appointment"),
 
     # Include URLs from the 'contact_app' app
-    path('contact/', include("contact_app.urls"), name = "contact_app"),
+    path('contact/', include("contact_app.urls"), name = "contact"),
 
     
 ]
