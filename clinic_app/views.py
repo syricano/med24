@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView
-from .models import HomePage
+from django.views.generic import ListView, TemplateView  
+from .models import HomePage, AboutUs
 
 
 # Define app's name
@@ -11,3 +11,9 @@ class HomePageView(ListView):
 
     def get_queryset(self):
         return HomePage.objects.all()
+
+class AboutUsView(ListView):
+    template_name = 'about.html'  
+
+    def get_queryset(self):
+        return AboutUs.objects.all()
